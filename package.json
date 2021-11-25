@@ -43,8 +43,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "version:pr": "node ./config/version-pr",
-    "generate-providers": "node ./config/generate-providers.js",
-    "postinstall": "npm run build"
+    "generate-providers": "node ./config/generate-providers.js"
   },
   "files": [
     "lib",
