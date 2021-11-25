@@ -280,6 +280,13 @@ export interface CallbacksOptions<
     }
     /** If Credentials provider is used, it contains the user credentials */
     credentials?: Record<string, CredentialInput>
+
+    /**
+     * If the user is already signed in and are going through the oauth flow, they must be linking the account.
+     * This tells the signIn function call which user they are logged in as.
+     * This allows you to block people from creating an account via oauth if they don't already have an account
+     * */
+    isSignedInAs?: string | null | undefined
   }) => Awaitable<string | boolean>
   /**
    * This callback is called anytime the user is redirected to a callback URL (e.g. on signin or signout).

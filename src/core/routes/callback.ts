@@ -77,8 +77,9 @@ export default async function callback(params: {
         // signIn callback - but if no user object is returned, that is fine
         // (that just means it's a new user signing in for the first time).
         let userOrProfile = profile
+        let isSignedInAs: string | null | undefined
         if (adapter) {
-          const { getUserByAccount } = adapter
+          const { getUserByAccount, getSessionAndUser } = adapter
           const userByAccount = await getUserByAccount({
             // @ts-expect-error
             providerAccountId: account.providerAccountId,
@@ -86,6 +87,9 @@ export default async function callback(params: {
           })
 
           if (userByAccount) userOrProfile = userByAccount
+
+          const sessionAndUser = await getSessionAndUser(sessionStore.value)
+          isSignedInAs = sessionAndUser?.user?.email
         }
 
         try {
@@ -94,6 +98,7 @@ export default async function callback(params: {
             // @ts-expect-error
             account,
             profile: OAuthProfile,
+            isSignedInAs,
           })
           if (!isAllowed) {
             return { redirect: `${url}/error?error=AccessDenied`, cookies }
