@@ -22,19 +22,19 @@ node_modules
 /dist
 
 # Generated files
-.docusaurus
-.cache-loader
-/providers
-/src/providers/oauth-types.ts
-/client
-/css
-/lib
-/core
-/jwt
-/react
-/adapters.d.ts
-/index.d.ts
-/index.js
+# .docusaurus
+# .cache-loader
+# /providers
+# /src/providers/oauth-types.ts
+# /client
+# /css
+# /lib
+# /core
+# /jwt
+# /react
+# /adapters.d.ts
+# /index.d.ts
+# /index.js
 /next
 
 # Development app
