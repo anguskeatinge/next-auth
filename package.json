@@ -44,7 +44,7 @@
     "lint:fix": "eslint . --fix",
     "version:pr": "node ./config/version-pr",
     "generate-providers": "node ./config/generate-providers.js",
-    "postinstall": "tsc --outDir ./build"
+    "postinstall": "npm run build"
   },
   "files": [
     "lib",
