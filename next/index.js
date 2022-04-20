@@ -15,7 +15,7 @@ async function NextAuthNextHandler(req, res, options) {
 
   const handler = await (0, _core.NextAuthHandler)({
     req: {
-      host: (_process$env$NEXTAUTH = process.env.NEXTAUTH_URL) !== null && _process$env$NEXTAUTH !== void 0 ? _process$env$NEXTAUTH : process.env.VERCEL_URL,
+      host: req.host || ((_process$env$NEXTAUTH = process.env.NEXTAUTH_URL) !== null && _process$env$NEXTAUTH !== void 0 ? _process$env$NEXTAUTH : process.env.VERCEL_URL),
       body: req.body,
       query: req.query,
       cookies: req.cookies,

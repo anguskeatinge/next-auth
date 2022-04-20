@@ -1,7 +1,10 @@
 import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from "next";
 import type { NextAuthOptions, Session } from "..";
+interface CustomNextApiRequest extends NextApiRequest {
+	host: string;
+}
 declare function NextAuth(options: NextAuthOptions): any;
-declare function NextAuth(req: NextApiRequest, res: NextApiResponse, options: NextAuthOptions): any;
+declare function NextAuth(req: CustomNextApiRequest, res: NextApiResponse, options: NextAuthOptions): any;
 export default NextAuth;
 export declare function getServerSession(context: GetServerSidePropsContext | {
     req: NextApiRequest;
